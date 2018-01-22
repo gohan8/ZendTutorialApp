@@ -1,7 +1,8 @@
 <?php
-namespace Album;
+namespace Serpens;
 
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\Router\Http\Segment;
 
 return [
     'controllers' => [
@@ -11,9 +12,27 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+            'serpens' => __DIR__ . '/../view',
         ],
     ],
+    'router' => [
+        'routes' => [
+            'serpens' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/serpens[/:action[/:id]]',
+                    'constraints' => [
+                        'action' => '[a-zA-Z][a-zA-Z0-9]*',
+                        'id' => '[0-9]+'
+                    ],
+                    'defaults' => [
+                        'action' => 'index',
+                        'controller' => Controller\SerpensController::class
+                    ]
+                ]
+            ]
+        ]
+    ]
 ];
 
 ?>
