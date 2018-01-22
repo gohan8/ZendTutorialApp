@@ -1,6 +1,6 @@
 <?php
 
-namespace Album;
+namespace Serpens;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
