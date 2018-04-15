@@ -1,6 +1,8 @@
 <?php
-$configFile = __DIR__ . '\..\config\db.ini';
-$sqlScriptFile = __DIR__ . '\..\data\createDb.sql';
+echo __DIR__;
+
+$configFile = __DIR__ . '/../config/local.ini';
+$sqlScriptFile = __DIR__ . '/../data/createDb.sql';
 $configSessions = parse_ini_file($configFile,true);
 print_r($configSessions);
 
@@ -22,8 +24,8 @@ $sqlStatements = file_get_contents($sqlScriptFile);
 try {
 	$dbCon = new PDO($dsn, $config['db.user'], $config['db.passwd']);
 	$count = $dbcon->exec($sqlStatements);
-	print "Sql create script returns $count\n";
-	$dbCon->close
+	print "Sql create script returns $count \n";
+	$dbCon->close;
 }catch(PDOException $pdoe){
 	error_log($pdoe->getMessage());
 	error_log($pdoe->getTraceAsString());
