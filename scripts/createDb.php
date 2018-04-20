@@ -25,7 +25,7 @@ unset($configSessions);
 $dsn = "mysql:host=${config['db.host']};port=${config['db.port']};";
 if (array_key_exists('db.database', $config)) 
     $dsn = "${dsn}dbname=${config['db.database']};";
-$dsn = "$dsn charset=utf8;";
+$dsn = "$dsn charset=latin1;";
 
 print "$dsn\n";
 $sqlStatements = file_get_contents($sqlScriptFile);
