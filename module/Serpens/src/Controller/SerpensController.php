@@ -7,10 +7,16 @@ use Zend\View\Model\ViewModel;
 
 class SerpensController extends AbstractActionController {
     
+    public $table;
+    
+    public function __construct(PostTable $table)
+    {
+        $this->table = $table;
+    }
+    
     public function indexAction(){
         return new ViewModel([
-            'list' => ['Item1','Item2','Item3'],
-            'title'=> 'Syscorpious from view'
+            'posts' => $table->fetchAll()
         ]);
     }
     

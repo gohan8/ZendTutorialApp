@@ -12,4 +12,6 @@
  */
 
 return [
+    'db.user' => 'petclinic',
+    'db.passwd' => 'password'
 ];

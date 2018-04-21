@@ -12,5 +12,8 @@
  */
 
 return [
-    // ...
+    'db.driver' => 'pdo',
+    'db.host' => 'data',
+    'db.port' => 3306,
+    'db.database' => 'petclinic'
 ];

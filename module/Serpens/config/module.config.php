@@ -1,15 +1,20 @@
 <?php
 namespace Serpens;
 
-use Zend\ServiceManager\Factory\InvokableFactory;
+
+#use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Router\Http\Segment;
 
 return [
-    'controllers' => [
-        'factories' => [
-            Controller\SerpensController::class => InvokableFactory::class,
-        ],
-    ],
+    #useless. Now our controllers are created n returned by service manager
+    #We define o factory function on Module.php since our controller depends on 
+    #on the DB interface objects.
+    #
+    #'controllers' => [
+    #    'factories' => [
+    #        Controller\SerpensController::class => InvokableFactory::class,
+    #    ],
+    #],
     'view_manager' => [
         'template_path_stack' => [
             'serpens' => __DIR__ . '/../view',
